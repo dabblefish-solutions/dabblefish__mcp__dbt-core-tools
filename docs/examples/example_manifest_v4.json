@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v4.json",
+    "dbt_version": "1.0.0",
+    "generated_at": "2022-01-15T10:30:00.000000Z",
+    "invocation_id": "12345678-1234-1234-1234-123456789012",
+    "env": {}
+  },
+  "nodes": {
+    "model.my_project.customers": {
+      "unique_id": "model.my_project.customers",
+      "name": "customers",
+      "resource_type": "model",
+      "package_name": "my_project",
+      "path": "customers.sql",
+      "original_file_path": "models/customers.sql",
+      "compiled_code": "SELECT * FROM raw_customers",
+      "raw_code": "SELECT * FROM raw_customers",
+      "database": "analytics",
+      "schema": "marts",
+      "alias": "customers",
+      "depends_on": {
+        "nodes": ["source.my_project.raw.customers"],
+        "macros": []
+      }
+    }
+  },
+  "sources": {
+    "source.my_project.raw.customers": {
+      "unique_id": "source.my_project.raw.customers",
+      "name": "customers",
+      "source_name": "raw",
+      "package_name": "my_project",
+      "database": "raw_db",
+      "schema": "public"
+    }
+  },
+  "macros": {},
+  "parent_map": {
+    "model.my_project.customers": ["source.my_project.raw.customers"]
+  },
+  "child_map": {
+    "source.my_project.raw.customers": ["model.my_project.customers"]
+  }
+}
